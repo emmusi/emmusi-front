@@ -9,6 +9,7 @@ const URL_CURSOS_HISTORICOS = URL + 'cursos-historicos/';
 
 
 export const VALIDAR_CREDENCIALES = URL_USUARIOS + 'validarCredenciales';
+export const RECORDAR_CREDENCIALES = URL_USUARIOS + 'recordarCredenciales';
 
 export const OBTENER_ESTUDIANTES = URL_ESTUDIANTES + 'getEstudiantes';
 export const OBTENER_UN_ESTUDIANTE = URL_ESTUDIANTES + 'getEstudiante/';

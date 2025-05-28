@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { validarCredenciales } from "../../services/loginServices";
+import { validarCredenciales, recordarCredenciales } from "../../services/loginServices";
 import Swal from "sweetalert2";
 
 export default function Login({ setIsAuthenticated }) {
@@ -93,7 +93,7 @@ export default function Login({ setIsAuthenticated }) {
             </div>
 
             <div className="mt-8 flex justify-between items-center">
-              <button className="font-medium text-base text-violet-500 ml-4">¿Olvidó su contraseña?</button>
+              <button className="font-medium text-base text-violet-500 ml-4" onClick={() => recordarCredenciales()}>¿Olvidó su contraseña?</button>
             </div>
 
             <div className="mt-8 flex flex-col gap-y-4">
