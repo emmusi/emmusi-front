@@ -57,7 +57,6 @@ export async function obtenerAusencias(id) {
     return await axios.request(options).then(function (response) {
         return response.data;
     }).catch((error) => {
-        alert(error);
         Swal.fire({
             icon: "error",
             title: error.response?.data?.message,
