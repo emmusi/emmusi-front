@@ -82,9 +82,20 @@ export default function ListaEstudianteCursosMatriculados({ id, estudiante, onCu
 
     };
 
-    const pasarHistorico = async (idCursoMatriculado) => {
-        try {
-            await insertarCursoHistorico(idCursoMatriculado).then(async (response) => {
+    const pasarHistorico = async (idCursoMatriculado, curso) => {
+
+        const result = await Swal.fire({
+            title: '¿Estás seguro?',
+            text: `¿Deseas pasar a historico el curso: ${curso}?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'No',
+            reverseButtons: true,
+        });
+
+        if (result.isConfirmed) {
+            insertarCursoHistorico(idCursoMatriculado).then(async (response) => {
 
                 if (response.success) {
                     await Swal.fire({
@@ -113,15 +124,8 @@ export default function ListaEstudianteCursosMatriculados({ id, estudiante, onCu
                     timer: 1500
                 });
             })
-        } catch (error) {
-            Swal.fire({
-                icon: "error",
-                title: "Error al mover a historico",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        }
 
+        }
     }
 
     const filteredRows = useMemo(() => {
@@ -141,7 +145,7 @@ export default function ListaEstudianteCursosMatriculados({ id, estudiante, onCu
             name: 'Acciones', minWidth: '350px',
             cell: row => (
                 <div className='flex flex-row gap-2'>
-                    <Button size="small" variant="outlined" onClick={() => pasarHistorico(row.id)} startIcon={<SchoolIcon />}>
+                    <Button size="small" variant="outlined" onClick={() => pasarHistorico(row.id, row.curso)} startIcon={<SchoolIcon />}>
                         Pasar a Historico
                     </Button>
                     <Button
@@ -178,7 +182,7 @@ export default function ListaEstudianteCursosMatriculados({ id, estudiante, onCu
         <>
             <Box sx={{ padding: 2 }} className='z-0 '>
 
-                <div className="flex flex-row gap-96 w-fit m-auto my-5">
+                <div className="flex flex-col sm:flex-row gap-8 sm:gap-10 lg:gap-60 w-fit m-auto my-5">
                     <div className=''>
                         <p className="font-medium text-lg ">Cédula: {estudiante.cedula}</p>
                         <p className="font-medium text-lg ">Estudiante: {estudiante.nombre}</p>

@@ -269,7 +269,7 @@ export default function NotasAusencias() {
             <Navbar />
             <Box sx={{ padding: 2 }} className='z-0 '>
 
-                <div className="flex flex-row gap-96 w-fit m-auto my-5">
+                <div className="flex flex-col sm:flex-row gap-8 sm:gap-10 lg:gap-60 w-fit m-auto my-10">
                     <div className=''>
                         <p className="font-medium text-lg ">Cédula: {estudiante.cedula}</p>
                         <p className="font-medium text-lg ">Estudiante: {estudiante.nombre}</p>

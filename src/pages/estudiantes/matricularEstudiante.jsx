@@ -194,6 +194,7 @@ export default function FormMatriculacion() {
           <p className="font-medium text-lg ">Subespecialidad: {estudiante.subespecialidad}</p>
         </div>
       </div>
+      
       <div className="h-auto flex flex-col items-center justify-center text-center mt-16 sm:mt-3 ">
 
         <p className="text-5xl font-semibold mb-12">Formulario de Matriculas</p>
