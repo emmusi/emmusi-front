@@ -2,7 +2,6 @@ import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import logo from '../assets/images/logo emmusi.jpg'; // Ajusta según tu estructura
 
 // 🎯 Función genérica para exportar a Excel
 export async function exportarMatriculadosExcel(estudiante, rows) {
@@ -94,15 +93,6 @@ export async function exportarMatriculadosExcel(estudiante, rows) {
 export async function exportarMatriculadosPDF(estudiante, rows) {
       const doc = new jsPDF();
 
-        // 👇 Dibuja los logos
-        const drawLogos = (startY) => {
-            const imgWidth = 40;
-            const imgHeight = 15;
-            doc.addImage(logo, 'PNG', 10, startY, imgWidth, imgHeight);
-            doc.addImage(logo, 'PNG', 60, startY, imgWidth, imgHeight);
-            doc.addImage(logo, 'PNG', 110, startY, imgWidth, imgHeight);
-        };
-
         // 👇 Dibuja el recuadro de matrícula a la derecha
         const drawCuadroMatricula = (startY) => {
             doc.setDrawColor(0);
@@ -150,12 +140,9 @@ export async function exportarMatriculadosPDF(estudiante, rows) {
         };
 
         // 👇 Función principal para ensamblar un bloque completo
-
-        drawLogos(10);
         drawCuadroMatricula(30); // se mantiene arriba a la derecha
         drawDatosEstudiante(30);
         drawTabla(70);
-
 
         doc.save(`${estudiante.nombre} Cursos Matriculados.pdf`);
 }
@@ -251,16 +238,7 @@ export async function exportarHistoricosExcel(estudiante, rows) {
 
 export async function exportarHistoricosPDF(estudiante, rows) {
     const doc = new jsPDF();
-    
-            // 👇 Dibuja los logos
-            const drawLogos = (startY) => {
-                const imgWidth = 40;
-                const imgHeight = 15;
-                doc.addImage(logo, 'PNG', 10, startY, imgWidth, imgHeight);
-                doc.addImage(logo, 'PNG', 60, startY, imgWidth, imgHeight);
-                doc.addImage(logo, 'PNG', 110, startY, imgWidth, imgHeight);
-            };
-    
+
             // 👇 Dibuja el recuadro de matrícula a la derecha
             const drawCuadroMatricula = (startY) => {
                 doc.setDrawColor(0);
@@ -309,8 +287,6 @@ export async function exportarHistoricosPDF(estudiante, rows) {
             };
     
             // 👇 Función principal para ensamblar un bloque completo
-    
-            drawLogos(10);
             drawCuadroMatricula(30); // se mantiene arriba a la derecha
             drawDatosEstudiante(30);
             drawTabla(70);
@@ -411,15 +387,6 @@ export async function exportarNotasAusenciasExcel (estudiante, rows) {
     export async function exportarNotasAusenciasPDF(estudiante, rows) {
         const doc = new jsPDF();
 
-        // 👇 Dibuja los logos
-        const drawLogos = (startY) => {
-            const imgWidth = 40;
-            const imgHeight = 15;
-            doc.addImage(logo, 'PNG', 10, startY, imgWidth, imgHeight);
-            doc.addImage(logo, 'PNG', 60, startY, imgWidth, imgHeight);
-            doc.addImage(logo, 'PNG', 110, startY, imgWidth, imgHeight);
-        };
-
         // 👇 Dibuja el recuadro de matrícula a la derecha
         const drawCuadroMatricula = (startY) => {
             doc.setDrawColor(0);
@@ -468,12 +435,9 @@ export async function exportarNotasAusenciasExcel (estudiante, rows) {
         };
 
         // 👇 Función principal para ensamblar un bloque completo
-
-        drawLogos(10);
         drawCuadroMatricula(30); // se mantiene arriba a la derecha
         drawDatosEstudiante(30);
         drawTabla(70);
-
 
         doc.save(`${estudiante.nombre} notas y ausencias.pdf`);
     };
