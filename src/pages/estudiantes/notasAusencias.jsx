@@ -234,7 +234,7 @@ export default function NotasAusencias() {
         { name: 'Justificadas', selector: row => row.justificadas, wrap: true, minWidth: '140px' },
         { name: 'Injustificadas', selector: row => row.injustificadas, wrap: true, minWidth: '160px' },
         {
-            name: 'Acciones', minWidth: '380px',
+            name: 'Acciones', minWidth: '390px',
             cell: row => (
                 <div className='flex flex-row gap-2'>
                     <Button size="small" variant="outlined" onClick={() => insertarAusencias(row.id, row.justificadas, row.injustificadas)} startIcon={<SchoolIcon />}>
