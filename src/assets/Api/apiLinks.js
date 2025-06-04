@@ -1,4 +1,4 @@
-const URL = 'https://emmusi-api.vercel.app/';
+const URL = 'https://emmusi-api.vercel.app/api/'; 
 const URL_USUARIOS = URL + 'usuarios/';
 const URL_ESTUDIANTES = URL + 'estudiantes/';
 const URL_PROFESORES = URL + 'profesores/';
