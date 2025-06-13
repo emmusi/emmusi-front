@@ -78,7 +78,7 @@ export default function Navbar() {
     return (
         <header className="relative flex justify-between items-center text-black py-6 px-8 md:px-32 bg-white drop-shadow-md z-50">
             <div>
-                <p className="w-96 max-h-12 text-xl"> Escuela Municipal de Música de San Isidro </p>
+                <p className="w-72 max-h-12 text-xl"> Escuela Municipal de Música de San Isidro </p>
             </div>
 
             {/* Menú para pantallas grandes */}
